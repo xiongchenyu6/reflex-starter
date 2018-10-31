@@ -1,0 +1,119 @@
+
+./Setup.hs,15
+main main1,2
+
+./app/DevelMain.hs,72
+module DevelMain DevelMain2,3
+update update12,13
+start start35,36
+
+./app/Main.hs,121
+module Main Main6,7
+cssList cssList23,24
+main main28,29
+app app31,32
+route route34,35
+mainPage mainPage48,49
+
+./app/Login.hs,597
+module Login(Login10,11
+import import15,16
+loginPage loginPage41,42
+usernameInput usernameInput59,60
+passwordInput passwordInput65,66
+buildReq buildReq71,72
+data LoginReq LoginReq75,76
+data LoginReq = LoginReq LoginReq75,76
+data LoginReq = LoginReq {email email75,76
+data LoginReq = LoginReq {email :: !T.Text, password password75,76
+data FailRes FailRes78,79
+data FailRes = FailRes FailRes78,79
+data FailRes = FailRes {code:code78,79
+data FailRes = FailRes {code:: !Int, message message78,79
+data FailRes = FailRes {code:: !Int, message :: !T.Text, label label78,79
+
+./app/LocalStorage.hs,171
+module LocalStorage LocalStorage3,4
+saveLocal saveLocal11,12
+getLocal getLocal18,19
+saveKV saveKV25,26
+getKV getKV32,33
+localStorageTest localStorageTest39,40
+
+./app/Token.hs,1112
+module Token Token7,8
+data SuccessRes SuccessRes19,20
+data SuccessRes = SuccessRes SuccessRes19,20
+data SuccessRes = SuccessRes {expires_in expires_in19,20
+data SuccessRes = SuccessRes {expires_in :: !Int, access_token access_token19,20
+data SuccessRes = SuccessRes {expires_in :: !Int, access_token :: !T.Text, user user19,20
+data SuccessRes = SuccessRes {expires_in :: !Int, access_token :: !T.Text, user :: !T.Text,  token_type token_type19,20
+data ExampleTag ExampleTag21,22
+  Tag1 Tag122,23
+  Tag2 Tag223,24
+instance GEq GEq ExampleTag25,26
+  geq geq26,27
+instance GCompare GCompare ExampleTag30,31
+  gcompare gcompare31,32
+instance GShow GShow ExampleTag36,37
+  gshowsPrec gshowsPrec37,38
+instance ShowTag ShowTag ExampleTag Identity40,41
+  showTaggedPrec showTaggedPrec41,42
+instance GKey GKey ExampleTag44,45
+  toKey toKey45,46
+  fromKey fromKey48,49
+  keys keys54,55
+instance ToJSONTag ToJSONTag ExampleTag Identity56,57
+  toJSONTagged toJSONTagged57,58
+instance FromJSONTag FromJSONTag ExampleTag Identity60,61
+  parseJSONTagged parseJSONTagged61,62
+
+./app/Icon.hs,53
+module Icon Icon2,3
+chatchatIcon chatchatIcon7,8
+
+./test/Spec.hs,15
+main main0,1
+
+./reflex-platform/a/A.hs,42
+module A A2,3
+data A f = A { _a _a7,8
+
+./reflex-platform/examples/helloDom.hs,15
+main main2,3
+
+./reflex-platform/examples/host.hs,113
+module Main Main19,20
+type TypingApp TypingApp40,41
+host host47,48
+guest guest116,117
+main main129,130
+
+./reflex-platform/scripts/test.hs,98
+module Main Main2,3
+repos repos11,12
+root root12,13
+scripts scripts13,14
+main main15,16
+
+./reflex-platform/benchmarking/compareBenchmarkResults.hs,817
+data BenchmarkResult BenchmarkResult20,21
+data BenchmarkResult = BenchmarkResultBenchmarkResult20,21
+  { _benchmarkResult_framework _benchmarkResult_framework21,22
+  , _benchmarkResult_benchmark _benchmarkResult_benchmark22,23
+  , _benchmarkResult_type _benchmarkResult_type23,24
+  , _benchmarkResult_min _benchmarkResult_min24,25
+  , _benchmarkResult_max _benchmarkResult_max25,26
+  , _benchmarkResult_mean _benchmarkResult_mean26,27
+  , _benchmarkResult_median _benchmarkResult_median27,28
+  , _benchmarkResult_geometricMean _benchmarkResult_geometricMean28,29
+  , _benchmarkResult_standardDeviation _benchmarkResult_standardDeviation29,30
+  , _benchmarkResult_values _benchmarkResult_values30,31
+deriveJSON deriveJSON34,35
+loadResult loadResult36,37
+main main39,40
+table table50,51
+
+./src/Lib.hs,42
+module LibLib0,1
+someFunc someFunc4,5

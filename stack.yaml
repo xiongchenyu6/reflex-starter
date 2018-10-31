@@ -15,7 +15,7 @@
 # resolver:
 #  name: custom-snapshot
 #  location: "./custom-snapshot.yaml"
-resolver: lts-12.14
+resolver: lts-12.16
 
 ghc-options:
     # All packages
@@ -71,6 +71,11 @@ packages:
 - location:
     git: https://github.com/3noch/reflex-dom-nested-routing.git
     commit: c49c75c693de8516d1b19314be500482bea9426c
+  extra-dep: true
+
+- location:
+    git: https://github.com/xiongchenyu6/reflex-dom-storage.git
+    commit: ae47b53f2b136d48c44cb4c877922d91881e1656
   extra-dep: true
 
 - location:
