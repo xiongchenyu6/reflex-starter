@@ -41,24 +41,26 @@ executable reflex-starter
     , base >=4.7 && <5
     , bytestring
     , containers
+    , dependent-map
+    , dependent-sum
+    , exception-transformers
     , file-embed
+    , foreign-store
     , ghcjs-dom
+    , jsaddle
     , jsaddle-warp
     , lens >= 4.16
     , mtl
     , reflex
     , reflex-dom
     , reflex-starter
-    , ghcjs-dom
-    , jsaddle
-    , bytestring
-    , text
-    , foreign-store
+    , ref-tf
     , reflex-dom-contrib
     , reflex-dom-storage
     , reflex-dom-nested-routing
-    , dependent-map
-    , dependent-sum
+    , text
+    , transformers
+    , uri-bytestring >= 0.3
   default-language: Haskell2010
 
 test-suite reflex-starter-test

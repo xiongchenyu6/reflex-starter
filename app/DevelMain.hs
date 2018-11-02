@@ -2,12 +2,12 @@
 
 module DevelMain where
 
-import Control.Concurrent
-import Data.IORef
-import Foreign.Store
-import Language.Javascript.JSaddle.Warp
-import Main (app)
-import Control.Exception (finally)
+import           Control.Concurrent
+import           Control.Exception                (finally)
+import           Data.IORef
+import           Foreign.Store
+import           Language.Javascript.JSaddle.Warp
+import           Main                             (app)
 
 -- | Start or restart the server.
 update :: IO ()

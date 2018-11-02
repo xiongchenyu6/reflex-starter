@@ -1,26 +1,25 @@
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE MonoLocalBinds      #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE RecursiveDo         #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE MonoLocalBinds #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecursiveDo       #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TemplateHaskell     #-}
 
 module Main where
 
+import           Control.Monad                    (void)
 import qualified Data.ByteString                  as BS
+import           Data.FileEmbed
+import           Data.Maybe                       (fromMaybe)
+import           Language.Javascript.JSaddle
 import qualified Language.Javascript.JSaddle.Warp as JSW
 import           Reflex.Dom.Core
-import           Data.Maybe            (fromMaybe)
-import           Data.FileEmbed
-import           Login
-import           Language.Javascript.JSaddle
-import           Control.Monad         (void)
 import           Reflex.Dom.Routing.Nested
 import           Reflex.Dom.Routing.Writer
-import           Reflex.Dom.Storage.Base
-import           Data.GADT.Aeson
-import           Reflex.Dom.Storage.Class
-import           LocalStorage
-import           Token
+import           RouteFragments.Login
+import           Types.RouteFragment
+import           UI.Base                          (WebUiM, runUiT)
+
 cssList :: BS.ByteString
 cssList = $(embedFile "static/font-awesome.css")
       <> $(embedFile "static/bulma.css")
@@ -30,21 +29,14 @@ main :: IO ()
 main = JSW.run 3000 $ app
 
 app :: JSM ()
-app = mainWidgetWithCss cssList $ route
+app = mainWidgetWithCss cssList $ mkUi
 
-route :: MonadWidget t m => m ()
-route =
-  void . runStorageT LocalStorage $ do
-    -- sets the default value for Tag1, only if none is already present
-    initializeTag Tag1 0
-    runRouteWithPathInFragment $ fmap snd $ runRouteWriterT $ do
-      void $ withRoute $ \route -> case fromMaybe "" route of
-        "" -> do
-            loginPage
-            tellRouteAs ["settings"] =<< button "Settings"
-            localStorageTest
-        "settings" -> text "Settings"
-        _          -> tellRedirectLocally [""]
+mkUi :: forall t m. MonadWidget t m => m ()
+mkUi = runUiT $ void mkWeb
 
-mainPage :: MonadWidget t m => m ()
-mainPage = undefined
+mkWeb :: forall t m. (WebUiM t m) => m ()
+mkWeb =
+  void $ withRoute $ \r -> case fromMaybe (RouteFragment "") r of
+    RouteFragment ""         -> loginPage
+    RouteFragment "settings" -> text "Settings"
+    RouteFragment _          -> tellRedirectLocally [RouteFragment ""]

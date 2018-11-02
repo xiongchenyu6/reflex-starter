@@ -1,9 +1,9 @@
-{-# LANGUAGE MonoLocalBinds #-}
+{-# LANGUAGE MonoLocalBinds    #-}
 {-# LANGUAGE OverloadedStrings #-}
 module Icon where
 
-import           Reflex.Dom.Core
 import           Reflex.Dom.Contrib.Widgets.Svg
+import           Reflex.Dom.Core
 
 chatchatIcon :: MonadWidget t m => m ()
 chatchatIcon =
